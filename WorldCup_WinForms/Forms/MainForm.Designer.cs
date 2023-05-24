@@ -35,16 +35,16 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackgroundImage = global::WorldCup_WinForms.Properties.Resources.settings_solid;
             resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.BackgroundImage = global::WorldCup_WinForms.Properties.Resources.settings_solid;
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnPrint
             // 
-            this.btnPrint.BackgroundImage = global::WorldCup_WinForms.Properties.Resources.print;
             resources.ApplyResources(this.btnPrint, "btnPrint");
+            this.btnPrint.BackgroundImage = global::WorldCup_WinForms.Properties.Resources.print;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.UseVisualStyleBackColor = true;
             // 

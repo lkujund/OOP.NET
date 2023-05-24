@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -17,6 +18,20 @@ namespace WorldCupDAL
         public static string FAVOURITES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\favourites.txt");
         public const string DEFAULTSETTINGS = "Croatian|True|";
         private const char SEPARATOR = '|';
+
+        //men cup paths
+        public static string JSON_MALE_TEAMS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\teams.json");
+        public static string JSON_MALE_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\results.json");
+        public static string JSON_MALE_GROUP_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\group_results.json");
+        public static string JSON_MALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\matches.json");
+
+        //women cup paths
+        public static string JSON_FEMALE_TEAMS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\teams.json");
+        public static string JSON_FEMALE_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\results.json");
+        public static string JSON_FEMALE_GROUP_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\group_results.json");
+        public static string JSON_FEMALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\matches.json");
+
+
 
 
         public static bool IsConfigured()
@@ -90,12 +105,25 @@ namespace WorldCupDAL
 
         public static void SaveFavourites()
         {
+            StringBuilder stringBuilder = new StringBuilder();
 
+            stringBuilder
+                .Append(Settings.Language).Append(SEPARATOR)
+                .Append(Settings.CupGender).Append(SEPARATOR)
+                .Append(Settings.CountryOne).Append(SEPARATOR)
+                .Append(Settings.CountryOneId).Append(SEPARATOR)
+                .Append(Settings.CountryTwo).Append(SEPARATOR)
+                .Append(Settings.CountryTwoId);
+
+            File.WriteAllText(FAVOURITES, stringBuilder.ToString());
         }
 
         public static void LoadFavourites()
         {
+            if (File.Exists(FAVOURITES))
+            {
 
+            }
         }
 
         public static void LoadTeams()

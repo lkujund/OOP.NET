@@ -7,9 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Data\JSON\men\" />
+    <Folder Include="Data\JSON\women\" />
     <Folder Include="Images\Players\" />
     <Folder Include="Config\" />
-    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>
