@@ -86,11 +86,6 @@ namespace WorldCupDAL
                 Settings.CountryTwoId = int.Parse(_settings[5]);
 
             }
-            else
-            {
-                Settings.Language = HR;
-                Settings.CupGender = false;
-            }
         }
 
         public static void SaveFavourites()

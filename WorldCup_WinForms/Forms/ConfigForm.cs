@@ -10,6 +10,7 @@ namespace WorldCup_WinForms
         public ConfigForm()
         {
             InitializeComponent();
+            Repository.ConfigLanguage();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -18,11 +19,13 @@ namespace WorldCup_WinForms
                 (rbFemale.Checked || rbMale.Checked))
             {
                 SetPreferences(cbLanguage, rbFemale);
+                Repository.SaveSettings();
                 Hide();
                 new MainForm().Show(); 
             }
             else
             {
+                
                 MessageBox.Show(
                     Settings.Language == Repository.EN ?
                     "Error: You must choose both the language and the cup!" :
@@ -40,6 +43,10 @@ namespace WorldCup_WinForms
         {
             Repository.LoadSettings();
             Repository.ConfigLanguage();
+            if (Settings.Language == null)            
+            {
+                btnCancel.Enabled = false;
+            }
         }
         private void SetPreferences(ComboBox cbLanguage, RadioButton rbFemale)
         {
