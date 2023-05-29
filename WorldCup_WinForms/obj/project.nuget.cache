@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "b7Qy51b9/T604VVEtF97cUr0CGIOy/IiWWQ2KT4G6LGbexiUIrWFc4uTookoY1tPe0X9VrYlzPO8M8i1uT/xPw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Luka\\source\\repos\\Luka_Kujundzic_OOP.NET\\WorldCup_WinForms\\WorldCup_WinForms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Luka\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

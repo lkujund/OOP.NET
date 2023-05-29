@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -25,11 +26,21 @@ namespace WorldCupDAL
         public static string JSON_MALE_GROUP_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\group_results.json");
         public static string JSON_MALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\matches.json");
 
+        public static string WEB_MALE_TEAMS = "https://worldcup-vua.nullbit.hr/men/teams";
+        public static string WEB_MALE_MATCHES = "https://worldcup-vua.nullbit.hr/men/teams/matches";
+        public static string WEB_MALE_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/results";
+        public static string WEB_MALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/group_results";
+
         //women cup paths
         public static string JSON_FEMALE_TEAMS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\teams.json");
         public static string JSON_FEMALE_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\results.json");
         public static string JSON_FEMALE_GROUP_RESULTS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\group_results.json");
         public static string JSON_FEMALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\matches.json");
+
+        public static string WEB_FEMALE_TEAMS = "https://worldcup-vua.nullbit.hr/women/teams";
+        public static string WEB_FEMALE_MATCHES = "https://worldcup-vua.nullbit.hr/women/teams/matches";
+        public static string WEB_FEMALE_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/results";
+        public static string WEB_FEMALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/group_results";
 
 
 
@@ -126,18 +137,108 @@ namespace WorldCupDAL
             }
         }
 
-        public static void LoadTeams()
+        public static Task<HashSet<Team>?> LoadTeams()
         {
+            if (File.Exists(JSON_MALE_TEAMS) && File.Exists(JSON_FEMALE_TEAMS))
+            {
+                return Task.Run
+                (() =>
+                {
+                    StreamReader reader = new StreamReader(
+                        Settings.CupGender == true ? 
+                        JSON_MALE_TEAMS : JSON_FEMALE_TEAMS); //male = true, female = false
+                        
+                    string teams = reader.ReadToEnd();
+                    return JsonConvert.DeserializeObject<HashSet<Team>>(teams);
+                        
+                    });
+                
 
+            }
+            else
+            {
+                return Task.Run
+                (() =>
+                {
+                        RestClient restClient = new RestClient(
+                            Settings.CupGender == true ?
+                            WEB_MALE_TEAMS : WEB_FEMALE_TEAMS); //male = true, female = false
+
+                        RestResponse restResponse = restClient.Execute<HashSet<Team>>(new RestRequest());
+                    File.WriteAllText(Settings.CupGender == true ?
+                        JSON_MALE_TEAMS : JSON_FEMALE_TEAMS, restResponse.Content.ToString()); //napravi lokalni file
+                    return JsonConvert.DeserializeObject<HashSet<Team>>(restResponse.Content);
+                });
+            }
         }
 
-        public static void LoadMatches()
+        public static Task<HashSet<Match>?> LoadMatches()
         {
+            if (File.Exists(JSON_MALE_MATCHES) && File.Exists(JSON_FEMALE_MATCHES))
+            {
+                return Task.Run
+                (() =>
+                {
+                    StreamReader reader = new StreamReader(
+                        Settings.CupGender == true ?
+                        JSON_MALE_MATCHES : JSON_FEMALE_MATCHES); //male = true, female = false
 
+                    string matches = reader.ReadToEnd();
+                    return JsonConvert.DeserializeObject<HashSet<Match>>(matches);
+
+                });
+
+
+            }
+            else
+            {
+                return Task.Run
+                (() =>
+                {
+                    RestClient restClient = new RestClient(
+                        Settings.CupGender == true ?
+                        WEB_MALE_MATCHES : WEB_FEMALE_MATCHES); //male = true, female = false
+
+                    RestResponse restResponse = restClient.Execute<HashSet<Match>>(new RestRequest());
+                    File.WriteAllText(Settings.CupGender == true ?
+                        JSON_MALE_MATCHES : JSON_FEMALE_MATCHES, restResponse.Content.ToString()); //napravi lokalni file
+                    return JsonConvert.DeserializeObject<HashSet<Match>>(restResponse.Content);
+                });
+            }
         }
-        public static void LoadResults()
+        public static Task<HashSet<Result>?> LoadResults()
         {
+            if (File.Exists(JSON_MALE_RESULTS) && File.Exists(JSON_FEMALE_RESULTS))
+            {
+                return Task.Run
+                (() =>
+                {
+                    StreamReader reader = new StreamReader(
+                        Settings.CupGender == true ?
+                        JSON_MALE_RESULTS : JSON_FEMALE_RESULTS); //male = true, female = false
 
+                    string results = reader.ReadToEnd();
+                    return JsonConvert.DeserializeObject<HashSet<Result>>(results);
+
+                });
+
+
+            }
+            else
+            {
+                return Task.Run
+                (() =>
+                {
+                    RestClient restClient = new RestClient(
+                        Settings.CupGender == true ?
+                        WEB_MALE_RESULTS : WEB_FEMALE_RESULTS); //male = true, female = false
+
+                    RestResponse restResponse = restClient.Execute<HashSet<Result>>(new RestRequest());
+                    File.WriteAllText(Settings.CupGender == true ?
+                        JSON_MALE_RESULTS : JSON_FEMALE_RESULTS, restResponse.Content.ToString()); //napravi lokalni file
+                    return JsonConvert.DeserializeObject<HashSet<Result>>(restResponse.Content);
+                });
+            }
         }
     }
 }

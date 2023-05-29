@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.pnlTeams = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -48,10 +49,16 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.UseVisualStyleBackColor = true;
             // 
+            // pnlTeams
+            // 
+            resources.ApplyResources(this.pnlTeams, "pnlTeams");
+            this.pnlTeams.Name = "pnlTeams";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlTeams);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSettings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -66,5 +73,6 @@
 
         private Button btnSettings;
         private Button btnPrint;
+        private Panel pnlTeams;
     }
 }
