@@ -32,6 +32,8 @@
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.pnlTeams = new System.Windows.Forms.Panel();
+            this.cbTeams = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -54,10 +56,24 @@
             resources.ApplyResources(this.pnlTeams, "pnlTeams");
             this.pnlTeams.Name = "pnlTeams";
             // 
+            // cbTeams
+            // 
+            resources.ApplyResources(this.cbTeams, "cbTeams");
+            this.cbTeams.FormattingEnabled = true;
+            this.cbTeams.Name = "cbTeams";
+            this.cbTeams.SelectedIndexChanged += new System.EventHandler(this.cbTeams_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cbTeams);
             this.Controls.Add(this.pnlTeams);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSettings);
@@ -66,6 +82,7 @@
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -74,5 +91,7 @@
         private Button btnSettings;
         private Button btnPrint;
         private Panel pnlTeams;
+        private ComboBox cbTeams;
+        private Label label1;
     }
 }

@@ -10,10 +10,8 @@ namespace WorldCupDAL.Models
     {
         public static string Language;
         public static bool CupGender; // false - female, true - male
-        public static string CountryOne;
-        public static int CountryOneId;
-        public static string CountryTwo;
-        public static int CountryTwoId;
+        public static string CountrySelectedMale;
+        public static string CountrySelectedFemale;
         public static HashSet<string> Favourites;
     }
 }

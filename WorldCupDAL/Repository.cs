@@ -50,14 +50,24 @@ namespace WorldCupDAL
             if (File.Exists(SETTINGS))
             {
                 //provjeri
-                var settings = File.ReadAllLines(SETTINGS);
-                var data = settings[0].Split(SEPARATOR);
-                if (data.Length == 6)
+                try
                 {
-                    return true;
+                    var settings = File.ReadAllLines(SETTINGS);
+                    var data = settings[0].Split(SEPARATOR);
+                    if (data.Length == 4)
+                    {
+                        return true;
+                    }
+                    else 
+                        return false;
                 }
-                else 
-                    return false;
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+
             }
             else
                 return false;
@@ -84,17 +94,23 @@ namespace WorldCupDAL
 
         public static void SaveSettings()
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            try
+            {
+                StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder
-                .Append(Settings.Language).Append(SEPARATOR)
-                .Append(Settings.CupGender).Append(SEPARATOR)
-                .Append(Settings.CountryOne).Append(SEPARATOR)
-                .Append(Settings.CountryOneId).Append(SEPARATOR)
-                .Append(Settings.CountryTwo).Append(SEPARATOR)
-                .Append(Settings.CountryTwoId);
+                stringBuilder
+                    .Append(Settings.Language).Append(SEPARATOR)
+                    .Append(Settings.CupGender).Append(SEPARATOR)
+                    .Append(Settings.CountrySelectedMale).Append(SEPARATOR)
+                    .Append(Settings.CountrySelectedFemale);
 
-            File.WriteAllText(SETTINGS, stringBuilder.ToString());
+                File.WriteAllText(SETTINGS, stringBuilder.ToString());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
                             
         }
 
@@ -102,14 +118,20 @@ namespace WorldCupDAL
         {
             if (File.Exists(SETTINGS))
             {
-                var file = File.ReadAllLines(SETTINGS);
-                _settings = file[0].Split(SEPARATOR).ToList();
-                Settings.Language = _settings[0];
-                Settings.CupGender = Boolean.Parse(_settings[1]);
-                Settings.CountryOne = _settings[2];
-                Settings.CountryOneId = int.Parse(_settings[3]);
-                Settings.CountryTwo = _settings[4];
-                Settings.CountryTwoId = int.Parse(_settings[5]);
+                try
+                {
+                    var file = File.ReadAllLines(SETTINGS);
+                    _settings = file[0].Split(SEPARATOR).ToList();
+                    Settings.Language = _settings[0];
+                    Settings.CupGender = Boolean.Parse(_settings[1]);
+                    Settings.CountrySelectedMale = _settings[2];
+                    Settings.CountrySelectedFemale = _settings[3];
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
 
             }
         }
@@ -118,13 +140,17 @@ namespace WorldCupDAL
         {
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder
-                .Append(Settings.Language).Append(SEPARATOR)
-                .Append(Settings.CupGender).Append(SEPARATOR)
-                .Append(Settings.CountryOne).Append(SEPARATOR)
-                .Append(Settings.CountryOneId).Append(SEPARATOR)
-                .Append(Settings.CountryTwo).Append(SEPARATOR)
-                .Append(Settings.CountryTwoId);
+            foreach (string favourite in Settings.Favourites)
+            {
+                if (favourite.Equals(Settings.Favourites.Last()))
+                {
+                    stringBuilder.Append(favourite);
+                } 
+                else
+                { 
+                    stringBuilder.Append(favourite).Append(SEPARATOR);
+                }
+            }
 
             File.WriteAllText(FAVOURITES, stringBuilder.ToString());
         }
@@ -133,7 +159,15 @@ namespace WorldCupDAL
         {
             if (File.Exists(FAVOURITES))
             {
-
+                try
+                {
+                    var file = File.ReadAllLines(SETTINGS);
+                    Settings.Favourites = file[0].Split(SEPARATOR).ToHashSet();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
 

@@ -15,6 +15,8 @@ namespace WorldCup_WinForms.Forms
     public partial class MainForm : Form
     {
         private static HashSet<Team> _teams;
+        private static HashSet<Match> _matches;
+        private static HashSet<Result> _results;
         public MainForm()
         {
             InitializeComponent();
@@ -29,9 +31,46 @@ namespace WorldCup_WinForms.Forms
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            Repository.LoadSettings();
-            Repository.ConfigLanguage();
-            _teams = await Repository.LoadTeams();
+            try
+            {
+                Repository.LoadSettings();
+                Repository.ConfigLanguage();
+                _teams = await Repository.LoadTeams();
+                _matches = await Repository.LoadMatches();
+                _results = await Repository.LoadResults();
+
+                FillComboBoxWithTeams();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Data error!");
+            }
+        }
+
+        private void FillComboBoxWithTeams()
+        {
+            this.cbTeams.Items.Clear();
+            foreach (Team team in _teams)
+            {
+                cbTeams.Items.Add($"{team.country} ({team.fifa_code})");
+            }
+            cbTeams.SelectedIndex = cbTeams.FindString(Settings.CupGender == true ?
+                Settings.CountrySelectedMale : Settings.CountrySelectedFemale);
+        }
+
+        private void cbTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Settings.CupGender == true)
+            {
+                Settings.CountrySelectedMale = cbTeams.SelectedItem.ToString();
+                Repository.SaveSettings();
+            }
+            else
+            {
+                Settings.CountrySelectedFemale = cbTeams.SelectedItem.ToString();
+                Repository.SaveSettings();
+            }
         }
     }
 }

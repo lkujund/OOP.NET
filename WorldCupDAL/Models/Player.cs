@@ -10,7 +10,7 @@ namespace WorldCupDAL.Models
     {
         public string name { get; set; }
         public bool captain { get; set; }
-        public int shirt_number { get; set; }
+        public int? shirt_number { get; set; }
         public string position { get; set; }
     }
 }

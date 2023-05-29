@@ -58,11 +58,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomCenter</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1264, 681</value>
   </data>
-  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pnlTeams.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;cbTeams.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox1.Name" xml:space="preserve">
+    <value>comboBox1</value>
+  </data>
+  <data name="&gt;&gt;pnlTeams.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1949,144 +1965,167 @@
         DwAA+B8AAPgfAAD8PwAA/D8AAPw/AAD4HwAA+B8AAPgfAADwDwAA8A8AAPAPAADwDwAA+B8AAPw/AAA=
 </value>
   </data>
-  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
-    <value>listBox1</value>
+  <data name="&gt;&gt;btnPrint.Name" xml:space="preserve">
+    <value>btnPrint</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>World Cup</value>
-  </data>
-  <data name="&gt;&gt;pnlTeams.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>544, 194</value>
-  </data>
-  <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>default primjer</value>
-  </data>
-  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="pnlTeams.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;comboBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pnlTeams.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
-    <value>btnSettings</value>
-  </data>
-  <data name="pnlTeams.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
+  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>544, 194</value>
+  </data>
+  <data name="cbTeams.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>World Cup</value>
+  </data>
+  <data name="&gt;&gt;cbTeams.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnPrint.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>BottomCenter</value>
   </data>
-  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnPrint.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
   </data>
   <data name="btnSettings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;pnlTeams.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1204, 12</value>
+  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
+    <value>btnSettings</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="comboBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 3</value>
   </data>
-  <data name="&gt;&gt;pnlTeams.Name" xml:space="preserve">
-    <value>pnlTeams</value>
+  <data name="cbTeams.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 37</value>
   </data>
-  <data name="&gt;&gt;btnPrint.Name" xml:space="preserve">
-    <value>btnPrint</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;btnPrint.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="comboBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 15</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
   </data>
-  <data name="&gt;&gt;pnlTeams.ZOrder" xml:space="preserve">
+  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1204, 12</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
+    <value>listBox1</value>
+  </data>
+  <data name="btnSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="btnPrint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;comboBox1.Parent" xml:space="preserve">
+    <value>pnlTeams</value>
   </data>
-  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1150, 12</value>
-  </data>
-  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;pnlTeams.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnPrint.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1264, 681</value>
-  </data>
-  <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="btnPrint.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="&gt;&gt;btnPrint.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>default primjer</value>
+  </data>
+  <data name="&gt;&gt;cbTeams.Name" xml:space="preserve">
+    <value>cbTeams</value>
+  </data>
+  <data name="&gt;&gt;pnlTeams.Name" xml:space="preserve">
+    <value>pnlTeams</value>
+  </data>
+  <data name="btnPrint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1150, 12</value>
+  </data>
+  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="comboBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbTeams.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnPrint.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnPrint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>hr</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

@@ -19,7 +19,7 @@ namespace WorldCupDAL.Models
         public string stage_name { get; set; }
         public string home_team_country { get; set; }
         public string away_team_country { get; set; }
-        public DateTime datetime { get; set; }
+        public DateTime? datetime { get; set; }
         public string winner { get; set; }
         public string winner_code { get; set; }
         public Team home_team { get; set; }
@@ -28,7 +28,7 @@ namespace WorldCupDAL.Models
         public List<Event> away_team_events { get; set; }
         public TeamStatistics home_team_statistics { get; set; }
         public TeamStatistics away_team_statistics { get; set; }
-        public DateTime last_event_update_at { get; set; }
-        public object last_score_update_at { get; set; }
+        public DateTime? last_event_update_at { get; set; }
+        public DateTime? last_score_update_at { get; set; }
     }
 }
