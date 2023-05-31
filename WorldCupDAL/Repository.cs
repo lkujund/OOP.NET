@@ -14,6 +14,9 @@ namespace WorldCupDAL
     {
         public static List<string> _settings = new List<string>();
 
+        public static string DEFAULT_IMAGE = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\playerimg\\default.jpg");
+        public static string IMG_ICON = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\img.png");
+
         public const string HR = "hr", EN = "en";
         public static string SETTINGS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\settings.txt");
         public static string FAVOURITES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\favourites.txt");
@@ -138,21 +141,29 @@ namespace WorldCupDAL
 
         public static void SaveFavourites()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            foreach (string favourite in Settings.Favourites)
+            try
             {
-                if (favourite.Equals(Settings.Favourites.Last()))
-                {
-                    stringBuilder.Append(favourite);
-                } 
-                else
-                { 
-                    stringBuilder.Append(favourite).Append(SEPARATOR);
-                }
-            }
+                StringBuilder stringBuilder = new StringBuilder();
 
-            File.WriteAllText(FAVOURITES, stringBuilder.ToString());
+                foreach (string favourite in Settings.Favourites)
+                {
+                    if (favourite.Equals(Settings.Favourites.Last()))
+                    {
+                        stringBuilder.Append(favourite);
+                    }
+                    else
+                    {
+                        stringBuilder.Append(favourite).Append(SEPARATOR);
+                    }
+                }
+
+                File.WriteAllText(FAVOURITES, stringBuilder.ToString());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public static void LoadFavourites()
@@ -161,7 +172,7 @@ namespace WorldCupDAL
             {
                 try
                 {
-                    var file = File.ReadAllLines(SETTINGS);
+                    var file = File.ReadAllLines(FAVOURITES);
                     Settings.Favourites = file[0].Split(SEPARATOR).ToHashSet();
                 }
                 catch (Exception)

@@ -25,7 +25,8 @@ namespace WorldCup_WinForms
                 {
                     SetPreferences(cbLanguage, rbFemale);
                     Repository.SaveSettings();
-                    Hide();
+                    Repository.ConfigLanguage();
+                    Close();
                     new MainForm().Show();
                 }              
             }
@@ -42,7 +43,8 @@ namespace WorldCup_WinForms
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            Repository.ConfigLanguage();
+            Close();
             new MainForm().Show();
         }
         private void ConfigForm_Load(object sender, EventArgs e)
@@ -68,11 +70,11 @@ namespace WorldCup_WinForms
 
             if (rbFemale.Checked)
             {
-                Settings.CupGender = true;
+                Settings.CupGender = false;
             }
             else
             {
-                Settings.CupGender = false;
+                Settings.CupGender = true;
             }
         }
 

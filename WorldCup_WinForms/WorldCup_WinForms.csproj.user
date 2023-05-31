@@ -10,5 +10,14 @@
     <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Panels\PlayerControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\PlayerRankControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Panels\StadiumControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

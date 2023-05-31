@@ -12,6 +12,6 @@ namespace WorldCupDAL.Models
         public static bool CupGender; // false - female, true - male
         public static string CountrySelectedMale;
         public static string CountrySelectedFemale;
-        public static HashSet<string> Favourites;
+        public static HashSet<string> Favourites = new();
     }
 }
