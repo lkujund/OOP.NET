@@ -33,3 +33,6 @@ C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\ne
 C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\WorldCup_WinForms.pdb
 C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\WorldCup_WinForms.genruntimeconfig.cache
 C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\ref\WorldCup_WinForms.dll
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\WorldCup_WinForms.Forms.CustomMessageBox.resources
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\WorldCup_WinForms.Forms.CustomMessageBox.en.resources
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WinForms\obj\Debug\net6.0-windows\WorldCup_WinForms.Forms.CustomMessageBox.hr.resources

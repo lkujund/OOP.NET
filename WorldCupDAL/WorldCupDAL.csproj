@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Data\JSON\men\" />
     <Folder Include="Data\JSON\women\" />
+    <Folder Include="Data\playerimg\" />
     <Folder Include="Images\Players\" />
     <Folder Include="Config\" />
   </ItemGroup>

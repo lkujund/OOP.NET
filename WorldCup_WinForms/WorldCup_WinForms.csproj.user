@@ -4,6 +4,9 @@
     <Compile Update="Forms\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

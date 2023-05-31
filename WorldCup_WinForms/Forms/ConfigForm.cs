@@ -15,13 +15,19 @@ namespace WorldCup_WinForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             if (cbLanguage.SelectedItem != null &&
                 (rbFemale.Checked || rbMale.Checked))
             {
-                SetPreferences(cbLanguage, rbFemale);
-                Repository.SaveSettings();
-                Hide();
-                new MainForm().Show(); 
+                CustomMessageBox messageBox = new CustomMessageBox();
+                messageBox.ShowDialog();
+                if (messageBox.DialogResult == DialogResult.Yes)
+                {
+                    SetPreferences(cbLanguage, rbFemale);
+                    Repository.SaveSettings();
+                    Hide();
+                    new MainForm().Show();
+                }              
             }
             else
             {
