@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,9 @@ namespace WorldCup_WinForms.Panels
         public Label lbCaptain;
         public Button btnAddImage;
         public Label lbFavouriteStar;
+
+        public static PlayerControl? playerStartedDnD;
+
 
         public PlayerControl()
         {
@@ -91,8 +95,34 @@ namespace WorldCup_WinForms.Panels
             btnAddImage.Click += BtnAddImage_Click;
 
             btnAddImage.MouseHover += BtnAddImage_MouseHover;
+
+            this.MouseDown += PlayerControl_MouseDown;
         }
 
+
+
+
+
+        private void PlayerControl_MouseDown(object? sender, MouseEventArgs e)
+        {
+            PlayerControl? playerControl = sender as PlayerControl;
+            if (playerControl == null)
+            {
+                return;
+            }
+            playerStartedDnD = playerControl;
+            StartDnD(playerControl);
+        }
+
+        private void StartDnD(PlayerControl? playerControl)
+        {
+            if (playerControl is null)
+            {
+                return;
+            }
+
+            playerControl.DoDragDrop(playerControl, DragDropEffects.Move);
+        }
         private void BtnAddImage_MouseHover(object? sender, EventArgs e)
         {
             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();

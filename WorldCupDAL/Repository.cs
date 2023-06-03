@@ -30,7 +30,7 @@ namespace WorldCupDAL
         public static string JSON_MALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\men\\matches.json");
 
         public static string WEB_MALE_TEAMS = "https://worldcup-vua.nullbit.hr/men/teams";
-        public static string WEB_MALE_MATCHES = "https://worldcup-vua.nullbit.hr/men/teams/matches";
+        public static string WEB_MALE_MATCHES = "https://worldcup-vua.nullbit.hr/men/matches";
         public static string WEB_MALE_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/results";
         public static string WEB_MALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/group_results";
 
@@ -41,7 +41,7 @@ namespace WorldCupDAL
         public static string JSON_FEMALE_MATCHES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\JSON\\women\\matches.json");
 
         public static string WEB_FEMALE_TEAMS = "https://worldcup-vua.nullbit.hr/women/teams";
-        public static string WEB_FEMALE_MATCHES = "https://worldcup-vua.nullbit.hr/women/teams/matches";
+        public static string WEB_FEMALE_MATCHES = "https://worldcup-vua.nullbit.hr/women/matches";
         public static string WEB_FEMALE_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/results";
         public static string WEB_FEMALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/group_results";
 

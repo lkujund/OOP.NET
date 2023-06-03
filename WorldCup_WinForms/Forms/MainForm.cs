@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,18 +25,15 @@ namespace WorldCup_WinForms.Forms
         private static HashSet<Team> _teams;
         private static HashSet<Match> _matches;
         private static HashSet<Result> _results;
+        private static readonly Color backColor = SystemColors.GradientActiveCaption;
+
+
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-
-            new ConfigForm().Show();
-            this.Hide();
-            
-        }
 
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -110,32 +109,9 @@ namespace WorldCup_WinForms.Forms
                 List<Event>? events = new();
                 List<PlayerRankControl> ranks = new();
 
-                foreach (Match m in matches)
-                {
-                    events.AddRange(m.home_team_events);
-                    events.AddRange(m.away_team_events);
-                }
+                LoadPlayerRankings(matches, events, ranks, players);
 
-                foreach (Player player in players)
-                {
-                    int goals = events.Where(x => x.player == player.name && x.type_of_event == "goal").Count();
-                    int yellowCards = events.Where(x => x.player == player.name && x.type_of_event == "yellow-card").Count();
 
-                    PlayerRankControl playerRank = new PlayerRankControl();
-                    playerRank.lbName.Text = "Name: " + player.name;
-                    playerRank.lbGoalNumber.Text = "Goals: " + goals.ToString();
-                    playerRank.lbYellowCards.Text = "Yellow cards: " + yellowCards.ToString();
-                    playerRank.pbPlayerImage.Image = pnlPlayers.Controls.OfType<PlayerControl>().FirstOrDefault(x => x.lbName.Text == playerRank.lbName.Text).pbPlayerImage.Image;
-
-                    ranks.Add(playerRank);
-                }
-                ranks.Sort();
-
-                foreach (PlayerRankControl rank in ranks)
-                {
-
-                    pnlPlayerRankings.Controls.Add(rank);
-                }
 
 
 
@@ -179,6 +155,36 @@ namespace WorldCup_WinForms.Forms
 
                 lbLoading.ForeColor = Color.Green;
                 lbLoading.Text = "Data loaded.";
+            }
+        }
+
+        public void LoadPlayerRankings(List<Match> matches, List<Event> events, List<PlayerRankControl> ranks, List<Player> players)
+        {
+            foreach (Match m in matches)
+            {
+                events.AddRange(m.home_team_events);
+                events.AddRange(m.away_team_events);
+            }
+
+            foreach (Player player in players)
+            {
+                int goals = events.Where(x => x.player == player.name && x.type_of_event == "goal").Count();
+                int yellowCards = events.Where(x => x.player == player.name && x.type_of_event == "yellow-card").Count();
+
+                PlayerRankControl playerRank = new PlayerRankControl();
+                playerRank.lbName.Text = "Name: " + player.name;
+                playerRank.lbGoalNumber.Text = "Goals: " + goals.ToString();
+                playerRank.lbYellowCards.Text = "Yellow cards: " + yellowCards.ToString();
+                playerRank.pbPlayerImage.Image = pnlPlayers.Controls.OfType<PlayerControl>().FirstOrDefault(x => x.lbName.Text == playerRank.lbName.Text).pbPlayerImage.Image;
+
+                ranks.Add(playerRank);
+            }
+            ranks.Sort();
+
+            foreach (PlayerRankControl rank in ranks)
+            {
+
+                pnlPlayerRankings.Controls.Add(rank);
             }
         }
 
@@ -228,20 +234,91 @@ namespace WorldCup_WinForms.Forms
                 e.Cancel = true;
             }
         }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
 
-        private void pnlPlayers_MouseDown(object sender, MouseEventArgs e)
+            new ConfigForm().Show();
+            this.Hide();
+            
+        }
+        private void btnPrint_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pnlPlayers_DragOver(object sender, DragEventArgs e)
+        private void btnSettings_MouseHover(object sender, EventArgs e)
         {
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.btnSettings, Settings.Language == Repository.EN ? "Settings..." : "Postavke...");
+        }
+        private void btnPrint_MouseHover(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.btnPrint, Settings.Language == Repository.EN ? "Print rankings..." : "Ispiši rang liste...");
+        }
+
+
+
+
+        private void pnlFavourites_DragEnter(object sender, DragEventArgs e)
+        {
+            FlowLayoutPanel? panel = sender as FlowLayoutPanel;
+
+            if (panel == null)
+            {
+                return;
+            }
+
+            e.Effect = DragDropEffects.Move;
+
+        }
+
+        private void pnlPlayers_DragLeave(object sender, EventArgs e)
+        {
+            FlowLayoutPanel? panel = sender as FlowLayoutPanel;
+            if (panel == null)
+            {
+                return;
+            }
+
 
         }
 
         private void pnlPlayers_DragDrop(object sender, DragEventArgs e)
         {
 
+            FlowLayoutPanel? panel = sender as FlowLayoutPanel;
+            if (panel == null)
+            {
+                return;
+            }
+
+            PlayerControl? playerControl = e.Data.GetData(typeof(PlayerControl)) as PlayerControl;
+
+            if (panel.Name == "pnlFavourites")
+            {
+                if (panel.Controls.Count >= 3)
+                {
+                    return;
+                }
+                PlayerControl target = pnlPlayers.Controls.OfType<PlayerControl>().FirstOrDefault(x => x.lbName.Text == playerControl.lbName.Text);
+                pnlPlayers.Controls.Remove(target);
+                playerControl.lbFavouriteStar.Visible = true;
+                pnlFavourites.Controls.Add(playerControl);
+                string addFavourite = playerControl.lbName.Text.Split(":")[1].Trim();
+                Settings.Favourites.Add(addFavourite);
+                Repository.SaveFavourites();
+            }
+            else
+            {
+                PlayerControl target = pnlFavourites.Controls.OfType<PlayerControl>().FirstOrDefault(x => x.lbName.Text == playerControl.lbName.Text);
+                pnlFavourites.Controls.Remove(target);
+                playerControl.lbFavouriteStar.Visible = false;
+                pnlPlayers.Controls.Add(playerControl);
+                string removeFavourite = playerControl.lbName.Text.Split(":")[1].Trim();
+                Settings.Favourites.Remove(removeFavourite);
+                Repository.SaveFavourites();
+            }
         }
     }
 }
