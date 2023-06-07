@@ -6,6 +6,7 @@ namespace WorldCup_WinForms
 {
     public partial class ConfigForm : Form
     {
+
         
         public ConfigForm()
         {

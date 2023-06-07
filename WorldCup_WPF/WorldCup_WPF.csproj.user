@@ -7,7 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Compile Update="WPFWindows\ConfigWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WPFWindows\PlayerInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WPFWindows\TeamInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="WPFWindows\ConfigWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPFWindows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPFWindows\PlayerInfoWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPFWindows\TeamInfoWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -1,0 +1,12 @@
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\bin\Debug\net6.0\WorldCupDAL.deps.json
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\bin\Debug\net6.0\WorldCupDAL.dll
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\bin\Debug\net6.0\WorldCupDAL.pdb
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.csproj.AssemblyReference.cache
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.AssemblyInfoInputs.cache
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.AssemblyInfo.cs
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.csproj.CoreCompileInputs.cache
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.dll
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\refint\WorldCupDAL.dll
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\WorldCupDAL.pdb
+C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCupDAL\obj\Debug\net6.0\ref\WorldCupDAL.dll

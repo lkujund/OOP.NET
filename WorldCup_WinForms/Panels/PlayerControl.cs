@@ -134,11 +134,19 @@ namespace WorldCup_WinForms.Panels
             using (var openImg = new OpenFileDialog())
             {
                 openImg.Title = "Select image";
-                openImg.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+                openImg.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.GIF)|*.BMP;*.JPG;*.PNG;*.GIF|All files (*.*)|*.*";
 
                 if (openImg.ShowDialog() == DialogResult.OK)
                 {
                     this.pbPlayerImage.Image = Image.FromFile(openImg.FileName);
+                    if (!Repository._playerimages.TryAdd(this.lbName.Text, openImg.FileName))
+                    {
+                        Repository._playerimages[this.lbName.Text] = openImg.FileName;
+                    }
+                    Repository.SaveImages();
+                    MainForm.lastPlayerImg = this;
+                    this.Parent.Parent.Text = "";
+                    this.Parent.Parent.Text = "World Cup";
                 }
 
     }

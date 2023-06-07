@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldCupDAL;
 
 namespace WorldCup_WinForms.Forms
 {
@@ -15,6 +16,7 @@ namespace WorldCup_WinForms.Forms
         public CustomMessageBox()
         {
             InitializeComponent();
+            Repository.ConfigLanguage();
         }
 
         private void CustomMessageBox_KeyDown(object sender, KeyEventArgs e)

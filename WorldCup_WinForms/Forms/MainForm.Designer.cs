@@ -44,6 +44,13 @@
             this.lbStadiumRankings = new System.Windows.Forms.Label();
             this.lbLoading = new System.Windows.Forms.Label();
             this.lbTeamPicker = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbYellowCards = new System.Windows.Forms.RadioButton();
+            this.rbGoals = new System.Windows.Forms.RadioButton();
+            this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSettings
@@ -154,11 +161,52 @@
             resources.ApplyResources(this.lbTeamPicker, "lbTeamPicker");
             this.lbTeamPicker.Name = "lbTeamPicker";
             // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.rbYellowCards);
+            this.panel1.Controls.Add(this.rbGoals);
+            this.panel1.Name = "panel1";
+            // 
+            // rbYellowCards
+            // 
+            resources.ApplyResources(this.rbYellowCards, "rbYellowCards");
+            this.rbYellowCards.Name = "rbYellowCards";
+            this.rbYellowCards.UseVisualStyleBackColor = true;
+            this.rbYellowCards.CheckedChanged += new System.EventHandler(this.rbYellowCards_CheckedChanged);
+            // 
+            // rbGoals
+            // 
+            resources.ApplyResources(this.rbGoals, "rbGoals");
+            this.rbGoals.Checked = true;
+            this.rbGoals.Name = "rbGoals";
+            this.rbGoals.TabStop = true;
+            this.rbGoals.UseVisualStyleBackColor = true;
+            this.rbGoals.CheckedChanged += new System.EventHandler(this.rbGoals_CheckedChanged);
+            // 
+            // printPreviewDialog
+            // 
+            resources.ApplyResources(this.printPreviewDialog, "printPreviewDialog");
+            this.printPreviewDialog.Document = this.printDocument;
+            this.printPreviewDialog.Name = "printPreviewDialog";
+            // 
+            // printDocument
+            // 
+            this.printDocument.DocumentName = "rankings";
+            this.printDocument.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument_EndPrint);
+            this.printDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument_PrintPage);
+            // 
+            // printDialog
+            // 
+            this.printDialog.Document = this.printDocument;
+            this.printDialog.UseEXDialog = true;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbTeamPicker);
             this.Controls.Add(this.lbLoading);
             this.Controls.Add(this.lbStadiumRankings);
@@ -177,6 +225,9 @@
             this.Name = "MainForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.TextChanged += new System.EventHandler(this.MainForm_TextChanged);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +250,11 @@
         private Label lbTeamPicker;
         public FlowLayoutPanel pnlPlayers;
         public FlowLayoutPanel pnlFavourites;
+        private Panel panel1;
+        private RadioButton rbYellowCards;
+        private RadioButton rbGoals;
+        private PrintPreviewDialog printPreviewDialog;
+        private PrintDialog printDialog;
+        private System.Drawing.Printing.PrintDocument printDocument;
     }
 }

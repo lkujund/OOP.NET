@@ -13,6 +13,7 @@ namespace WorldCupDAL
     public class Repository
     {
         public static List<string> _settings = new List<string>();
+        public static Dictionary<string, string> _playerimages = new();
 
         public static string DEFAULT_IMAGE = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\playerimg\\default.jpg");
         public static string IMG_ICON = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\img.png");
@@ -20,6 +21,7 @@ namespace WorldCupDAL
         public const string HR = "hr", EN = "en";
         public static string SETTINGS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\settings.txt");
         public static string FAVOURITES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\favourites.txt");
+        public static string IMAGEFILE = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\imagefile.txt");
         public const string DEFAULTSETTINGS = "Croatian|True|";
         private const char SEPARATOR = '|';
 
@@ -31,6 +33,7 @@ namespace WorldCupDAL
 
         public static string WEB_MALE_TEAMS = "https://worldcup-vua.nullbit.hr/men/teams";
         public static string WEB_MALE_MATCHES = "https://worldcup-vua.nullbit.hr/men/matches";
+        public static string WEB_MALE_MATCH_COUNTRY = "https://worldcup-vua.nullbit.hr/men/matches/country?fifa_code=";
         public static string WEB_MALE_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/results";
         public static string WEB_MALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/men/teams/group_results";
 
@@ -42,10 +45,11 @@ namespace WorldCupDAL
 
         public static string WEB_FEMALE_TEAMS = "https://worldcup-vua.nullbit.hr/women/teams";
         public static string WEB_FEMALE_MATCHES = "https://worldcup-vua.nullbit.hr/women/matches";
+        public static string WEB_FEMALE_MATCH_COUNTRY = "https://worldcup-vua.nullbit.hr/women/matches/country?fifa_code=";
         public static string WEB_FEMALE_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/results";
         public static string WEB_FEMALE_GROUP_RESULTS = "https://worldcup-vua.nullbit.hr/women/teams/group_results";
 
-
+       
 
 
         public static bool IsConfigured()
@@ -94,6 +98,52 @@ namespace WorldCupDAL
             Thread.CurrentThread.CurrentCulture = culture;
         }
 
+        public static void SaveImages()
+        {
+            try
+            {
+                StringBuilder stringBuilder = new StringBuilder();
+                
+                foreach (KeyValuePair<string, string> img in _playerimages)
+                {
+                    stringBuilder
+                        .Append(img.Key)
+                        .Append(SEPARATOR)
+                        .Append(img.Value);
+                    if (!img.Equals(_playerimages.Last()))
+                    {
+                        stringBuilder.Append(Environment.NewLine);
+                    }
+                }
+                File.WriteAllText(IMAGEFILE, stringBuilder.ToString());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public static void LoadImages()
+        {
+            if (File.Exists(IMAGEFILE))
+            {
+                try
+                {
+                    var file = File.ReadAllLines(IMAGEFILE);
+                    foreach (string line in file)
+                    {
+                        string[] img = line.Split(SEPARATOR);
+                        _playerimages.TryAdd(img[0], img[1]);
+                    }
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
 
         public static void SaveSettings()
         {
@@ -173,7 +223,10 @@ namespace WorldCupDAL
                 try
                 {
                     var file = File.ReadAllLines(FAVOURITES);
-                    Settings.Favourites = file[0].Split(SEPARATOR).ToHashSet();
+                    if (file.Length != 0)
+                    {
+                        Settings.Favourites = file[0].Split(SEPARATOR).ToHashSet(); 
+                    }
                 }
                 catch (Exception)
                 {

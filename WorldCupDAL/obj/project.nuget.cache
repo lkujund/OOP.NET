@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "hc1Pl5n7RzPWbdw5ib1re82Lm/u7lXc/K1kAyephiCuEH36xcobOnZU9EwfuNQveacQZYFfWj4MsQXAhciYoNg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Luka\\source\\repos\\Luka_Kujundzic_OOP.NET\\WorldCupDAL\\WorldCupDAL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Luka\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\Luka\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

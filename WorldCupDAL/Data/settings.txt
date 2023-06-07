@@ -1,1 +1,1 @@
-hr|True|Croatia (CRO)|Canada (CAN)
+en|False|Colombia (COL)|Jamaica (JAM)
