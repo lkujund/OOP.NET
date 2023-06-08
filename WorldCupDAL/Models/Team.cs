@@ -11,6 +11,7 @@ namespace WorldCupDAL.Models
         public int id { get; set; }
         public string country { get; set; }
         public string alternate_name { get; set; }
+        public int goals { get; set; }
         public string fifa_code { get; set; }
         public int group_id { get; set; }
         public string group_letter { get; set; }

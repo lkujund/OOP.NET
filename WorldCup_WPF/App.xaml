@@ -2,8 +2,46 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WorldCup_WPF"
-             StartupUri="WPFWindows/MainWindow.xaml">
+             Startup="Application_Startup">
     <Application.Resources>
-         
+
+
+        <Storyboard x:Key="btnTeamInfoAnimation" TargetProperty="Height">
+            <DoubleAnimation
+                    From="25"
+                    To="500"
+                    Duration="0:0:0.25"
+                    AutoReverse="True"
+                    />
+        </Storyboard>
+
+
+        <Storyboard x:Key="playerControlInfoAnimation">
+            <DoubleAnimation Storyboard.TargetName="playerNumber" Storyboard.TargetProperty="Width"
+                    From="25"
+                    To="110"
+                    Duration="0:0:0.15"
+                    AutoReverse="True"
+                    />
+            <DoubleAnimation Storyboard.TargetName="playerNumber" Storyboard.TargetProperty="Height"
+                    From="25"
+                    To="110"
+                    Duration="0:0:0.15"
+                    AutoReverse="True"
+                    />
+            <DoubleAnimation Storyboard.TargetName="playerNumber" Storyboard.TargetProperty="FontSize"
+                    From="16"
+                    To="70"
+                    Duration="0:0:0.15"
+                    AutoReverse="True"
+                    />
+        </Storyboard>
+
+
     </Application.Resources>
 </Application>
+             
+             
+ 
+
+

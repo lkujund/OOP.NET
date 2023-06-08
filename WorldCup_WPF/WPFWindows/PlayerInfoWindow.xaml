@@ -3,10 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WorldCup_WPF.Properties"
         xmlns:local="clr-namespace:WorldCup_WPF.WPFWindows"
         mc:Ignorable="d"
-        Title="PlayerInfoWindow" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="PlayerInfoWindow" Height="600" Width="400">
+    <Grid Background="ForestGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+            <Image x:Name="playerImage" Width="180" Height="180" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerName}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerNumber}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerPosition}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerCaptain}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerGoals}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbPlayerYellowCards}" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+        
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <Image Width="180" Height="180" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top"/>
+            <Label x:Name="playerName" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="playerNumber" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="playerPosition" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="playerCaptain" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="goalNumber" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="yellowCards" Content="" Width="180" Height="50" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10, 5" FontSize="14" FontWeight="Bold"/>            
+        </StackPanel>
         
     </Grid>
 </Window>

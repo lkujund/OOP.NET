@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\PlayerControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="WPFWindows\ConfigWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WPFWindows\CustomMessageBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="WPFWindows\PlayerInfoWindow.xaml.cs">
@@ -18,7 +24,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\PlayerControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="WPFWindows\ConfigWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPFWindows\CustomMessageBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WPFWindows\MainWindow.xaml">

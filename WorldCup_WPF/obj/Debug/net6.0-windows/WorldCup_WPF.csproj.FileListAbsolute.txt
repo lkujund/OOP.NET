@@ -1,9 +1,0 @@
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WorldCup_WPF.csproj.AssemblyReference.cache
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\MainWindow.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WPFWindows\ConfigWindow.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WPFWindows\MainWindow.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WPFWindows\PlayerInfoWindow.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WPFWindows\TeamInfoWindow.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\App.g.cs
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WorldCup_WPF_MarkupCompile.cache
-C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\obj\Debug\net6.0-windows\WorldCup_WPF_MarkupCompile.lref

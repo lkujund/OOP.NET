@@ -3,10 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WorldCup_WPF.Properties"
         xmlns:local="clr-namespace:WorldCup_WPF.WPFWindows"
         mc:Ignorable="d"
-        Title="TeamInfoWindow" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Team Statistics" Height="580" Width="400">
+    <Grid Background="DarkKhaki">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Label Content="{x:Static lang:Resources.lbTeamName}" Width="180" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbFifa}" Width="180" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbGamesPlayed}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbWins}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbLosses}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbDraws}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbGoalsScored}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbGoalsReceived}" Width="185" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+            <Label Content="{x:Static lang:Resources.lbGoalDifference}" Width="150" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" FontSize="14" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Vertical">
+            <Label x:Name="countryName" Content="" Width="185" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="16"/>
+            <Label x:Name="countryFifaCode" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="gamesPlayed" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="gamesWon" Foreground="Green" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="gamesLost" Foreground="Red" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="gamesDraw" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="goalsScored" Foreground="Green" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="goalsReceived" Foreground="Red" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+            <Label x:Name="goalDifference" Content="" Width="150" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -3,25 +3,79 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WorldCup_WPF.Properties"
         xmlns:local="clr-namespace:WorldCup_WPF"
         mc:Ignorable="d"
-        Title="World Cup" Height="720" Width="1280">
-    <DockPanel Background="#FF62DDE6">
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1230,674,0,0" VerticalAlignment="Top"/>
-        <Grid Margin="10,10,886,20">
-            <ComboBox x:Name="cbTeams" HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Width="145"/>
-            <ComboBox x:Name="cbVersusTeams" HorizontalAlignment="Left" Margin="232,34,0,0" VerticalAlignment="Top" Width="145"/>
-            <Label Content="Odaberi reprezentaciju..." HorizontalAlignment="Left" Margin="6,8,0,0" VerticalAlignment="Top"/>
-            <Label Content="Odaberi protivnika..." HorizontalAlignment="Left" Margin="232,8,0,0" VerticalAlignment="Top"/>
-            <Label Content="VS" HorizontalAlignment="Left" Margin="179,32,0,0" VerticalAlignment="Top"/>
-            <Label Content="REZULTAT:" HorizontalAlignment="Left" Margin="6,125,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnPreviewTeam" Content="Pregled" HorizontalAlignment="Left" Margin="55,61,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnPreviewVersusTeam" Content="Pregled" HorizontalAlignment="Left" Margin="285,61,0,0" VerticalAlignment="Top"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="83,125,0,0" VerticalAlignment="Top"/>
-            <Label Content="L" HorizontalAlignment="Left" Margin="126,125,0,0" VerticalAlignment="Top"/>
-            <Label Content="Label" HorizontalAlignment="Left" Margin="187,125,0,0" VerticalAlignment="Top"/>
-            <Label Content="L" HorizontalAlignment="Left" Margin="165,125,0,0" VerticalAlignment="Top"/>
-            <Label Content=":" HorizontalAlignment="Left" Margin="147,125,0,0" VerticalAlignment="Top"/>
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        Title="World Cup" Height="1080" Width="1920" Icon="/WPFWindows/wcicon.png">
+    <Grid Background="LightBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Grid.Column="0" x:Name="cbTeams" HorizontalAlignment="Left" Margin="6,34,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cbTeams_SelectionChanged"/>
+        <ComboBox Grid.Column="0" x:Name="cbVersusTeams" HorizontalAlignment="Left" Margin="232,34,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cbVersusTeams_SelectionChanged"/>
+        <Label Grid.Column="0" x:Name="lbLoading" Content="" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="ExtraBold"/>
+        <Label Grid.Column="0" Content="{x:Static lang:Resources.lbTeam1}" HorizontalAlignment="Left" Margin="6,8,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" Content="{x:Static lang:Resources.lbTeam2}" HorizontalAlignment="Left" Margin="232,8,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" Content="VS" HorizontalAlignment="Left" Margin="179,32,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" Content="{x:Static lang:Resources.lbResult}" HorizontalAlignment="Left" Margin="10,140,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Button Grid.Column="0" x:Name="btnPreviewTeam" Width="50" Height="25" Content="{x:Static lang:Resources.btnView}" HorizontalAlignment="Left" Margin="55,61,0,0" VerticalAlignment="Top" Click="btnPreviewTeam_Click">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource btnTeamInfoAnimation}"/>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button Grid.Column="0" x:Name="btnPreviewVersusTeam" Width="50" Height="25" Content="{x:Static lang:Resources.btnView}" HorizontalAlignment="Left" Margin="285,61,0,0" VerticalAlignment="Top" Click="btnPreviewVersusTeam_Click">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource btnTeamInfoAnimation}"/>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Label Grid.Column="0" x:Name="lbFirstTeamName" Content="" HorizontalAlignment="Left" Margin="15,174,0,0" VerticalAlignment="Top" Width="136" FontSize="18"/>
+        <Label Grid.Column="0" x:Name="lbFirstTeamResult" Content="0" HorizontalAlignment="Left" Margin="156,173,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Grid.Column="0" x:Name="lbSecondTeamName" Content="" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Margin="0,175,14,0" VerticalAlignment="Top" Width="136
+               " FontSize="18"/>
+        <Label Grid.Column="0" x:Name="lbSecondTeamResult" Content="0" HorizontalAlignment="Left" Margin="201,173,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label Content=":" HorizontalAlignment="Center" Margin="0,172,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button Click="btnSettings_Click" Grid.Column="0" x:Name="btnSettings" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="128" Width="128" BorderThickness="5" BorderBrush="Black">
+            <Button.Background>
+                <ImageBrush ImageSource="/WPFWindows/settings-solid.png"/>
+            </Button.Background>
+        </Button>
+        <Grid x:Name="fieldGrid" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/WPFWindows/football_pitch.png" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="homeGoalie"/>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="homeDefender"/>
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="homeMidfield"/>
+            <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="homeForward"/>
+            <StackPanel Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="awayForward"/>
+            <StackPanel Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="awayMidfield"/>
+            <StackPanel Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="awayDefender"/>
+            <StackPanel Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical" x:Name="awayGoalie"/>
         </Grid>
-    </DockPanel>
+
+
+    </Grid>
 </Window>

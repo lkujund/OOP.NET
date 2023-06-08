@@ -22,6 +22,8 @@ namespace WorldCupDAL
         public static string SETTINGS = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\settings.txt");
         public static string FAVOURITES = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\favourites.txt");
         public static string IMAGEFILE = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\imagefile.txt");
+        public static string SECONDCOUNTRY = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\secondcountry.txt");
+        public static string WPFRESOLUTION = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName, "WorldCupDAL\\Data\\resolution.txt");
         public const string DEFAULTSETTINGS = "Croatian|True|";
         private const char SEPARATOR = '|';
 
@@ -66,6 +68,34 @@ namespace WorldCupDAL
                         return true;
                     }
                     else 
+                        return false;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+
+            }
+            else
+                return false;
+
+        }
+        public static bool ResolutionSet()
+        {
+            if (File.Exists(WPFRESOLUTION))
+            {
+                //provjeri
+                try
+                {
+                    var settings = File.ReadAllLines(WPFRESOLUTION);
+                    var data = settings[0].Split("x");
+                    if (data.Length == 2)
+                    {
+                        return true;
+                    }
+                    else
                         return false;
                 }
                 catch (Exception)
@@ -158,6 +188,24 @@ namespace WorldCupDAL
                     .Append(Settings.CountrySelectedFemale);
 
                 File.WriteAllText(SETTINGS, stringBuilder.ToString());
+
+                if (Settings.WPFSecondCountry.Length > 0)
+                {
+                    stringBuilder.Clear();
+                    stringBuilder.Append(Settings.WPFSecondCountry);
+
+                    File.WriteAllText(SECONDCOUNTRY, stringBuilder.ToString());
+                    
+                }
+
+                if (Settings.WPFResolution.Length > 0)
+                {
+                    stringBuilder.Clear();
+                    stringBuilder.Append(Settings.WPFResolution);
+
+                    File.WriteAllText(WPFRESOLUTION, stringBuilder.ToString());
+                }
+
             }
             catch (Exception)
             {
@@ -166,6 +214,8 @@ namespace WorldCupDAL
             }
                             
         }
+
+
 
         public static void LoadSettings()
         {
@@ -186,6 +236,32 @@ namespace WorldCupDAL
                     throw;
                 }
 
+            }
+            if (File.Exists(SECONDCOUNTRY))
+            {
+                try
+                {
+                    var file = File.ReadAllLines(SECONDCOUNTRY);
+                    Settings.WPFSecondCountry = file[0].Trim();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+            if (File.Exists(WPFRESOLUTION))
+            {
+                try
+                {
+                    var file = File.ReadAllLines(WPFRESOLUTION);
+                    Settings.WPFResolution = file[0];
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
         }
 

@@ -8,7 +8,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Remove="WPFWindows\football_pitch.png" />
+    <None Remove="WPFWindows\settings-solid.png" />
+    <None Remove="WPFWindows\wcicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WorldCupDAL\WorldCupDAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="WPFWindows\football_pitch.png" />
+    <Resource Include="WPFWindows\settings-solid.png" />
+    <Resource Include="WPFWindows\wcicon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

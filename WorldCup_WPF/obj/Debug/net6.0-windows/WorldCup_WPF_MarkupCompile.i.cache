@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Luka\source\repos\Luka_Kujundzic_OOP.NET\WorldCup_WPF\App.xaml
-51816410849
+62142625329
 
-9-680478859
-194-2004305220
-MainWindow.xaml;WPFWindows\ConfigWindow.xaml;WPFWindows\MainWindow.xaml;WPFWindows\PlayerInfoWindow.xaml;WPFWindows\TeamInfoWindow.xaml;
+11-1341548357
+197-1951351906
+Controls\PlayerControl.xaml;WPFWindows\ConfigWindow.xaml;WPFWindows\CustomMessageBox.xaml;WPFWindows\MainWindow.xaml;WPFWindows\PlayerInfoWindow.xaml;WPFWindows\TeamInfoWindow.xaml;
 
 False
 

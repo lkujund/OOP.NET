@@ -13,5 +13,7 @@ namespace WorldCupDAL.Models
         public static string CountrySelectedMale;
         public static string CountrySelectedFemale;
         public static HashSet<string> Favourites = new();
+        public static string WPFSecondCountry = "";
+        public static string WPFResolution = "";
     }
 }

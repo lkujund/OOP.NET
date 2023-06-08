@@ -15,8 +15,8 @@ namespace WorldCup_WinForms.Forms
     {
         public CustomMessageBox()
         {
-            InitializeComponent();
             Repository.ConfigLanguage();
+            InitializeComponent();
         }
 
         private void CustomMessageBox_KeyDown(object sender, KeyEventArgs e)

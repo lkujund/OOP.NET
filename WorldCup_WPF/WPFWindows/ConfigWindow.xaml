@@ -3,30 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lang="clr-namespace:WorldCup_WPF.Properties"
         xmlns:local="clr-namespace:WorldCup_WPF.WPFWindows"
         mc:Ignorable="d"
-        
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
         Title="Settings" Height="500" Width="400">
-    <Border x:Name="ConfigWindow1" Height="484" VerticalAlignment="Bottom">
-        <Border.Background>
+    <Grid x:Name="ConfigWindow1" Height="484" VerticalAlignment="Bottom">
+        <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF00F775"/>
                 <GradientStop Color="#FF20CEEF" Offset="1"/>
             </LinearGradientBrush>
-        </Border.Background>
-        <Grid Width="400" Height="450" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <StackPanel Margin="127,148,93,207">
-                <RadioButton x:Name="rbFemale" Content="Žensko" Height="37"/>
-                <RadioButton x:Name="rbMale" Content="Muško" Height="38"/>
-            </StackPanel>
-            <ComboBox x:Name="cbLanguage" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,51,0,0"/>
-            <Label Content="Jezik" FontSize="16" Width="160" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,20,0,0"/>
-            <Label Content="Odabir prvenstva" FontSize="16" Width="160" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,112,0,0"/>
-            <ComboBox x:Name="cbResolution" Width="160" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,248,0,0"/>
-            <Label Content="Rezolucija" FontSize="16" Width="160" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,217,0,0"/>
-            <Button x:Name="btnSave" Content="Spremi" Height="65" Width="150" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,359,0,0"/>
-            <Button x:Name="btnCancel" Content="Poništi" Height="65" Width="150" Background="#FFFF4B4B" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,359,0,0"/>
-
-        </Grid>
-    </Border>
+        </Grid.Background>
+        <StackPanel Margin="127,148,93,274">
+            <RadioButton x:Name="rbFemale" Content="{x:Static lang:Resources.rbFemaleText}" Height="37"/>
+            <RadioButton x:Name="rbMale" Content="{x:Static lang:Resources.rbMaleText}" Height="38"/>
+        </StackPanel>
+        <ComboBox x:Name="cbLanguage" Width="160" Height="20" HorizontalAlignment="Center" Margin="0,74,0,390">
+            <ComboBoxItem Content="{x:Static lang:Resources.cbCro}"/>
+            <ComboBoxItem Content="{x:Static lang:Resources.cbEng}"/>
+        </ComboBox>
+        <Label Content="{x:Static lang:Resources.lbLanguage}" Padding="0" FontSize="16" Width="160" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,39,0,415"/>
+        <Label Content="{x:Static lang:Resources.lbCup}" Padding="0" FontSize="16" Width="160" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,113,0,341"/>
+        <ComboBox x:Name="cbResolution" Width="160" Height="20" HorizontalAlignment="Center" Margin="0,277,0,187">
+            <ComboBoxItem Content="1280x720"/>
+            <ComboBoxItem Content="1600x900"/>
+            <ComboBoxItem Content="1920x1080"/>
+            <ComboBoxItem Content="Fullscreen"/>
+        </ComboBox>
+        <Label Content="{x:Static lang:Resources.lbResolution}" Padding="0" FontSize="16" Width="160" Height="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,242,0,212"/>
+        <Button Click="btnSave_Click" x:Name="btnSave" Content="{x:Static lang:Resources.btnSaveText}" Height="65" Width="150" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,20"/>
+        <Button Click="btnCancel_Click" x:Name="btnCancel" Content="{x:Static lang:Resources.btnCancelText}" Height="65" Width="150" Background="#FFFF4B4B" FontWeight="Bold" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,20"/>
+    </Grid>
 </Window>

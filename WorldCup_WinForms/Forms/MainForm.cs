@@ -198,7 +198,7 @@ namespace WorldCup_WinForms.Forms
 
             foreach (Player player in players)
             {
-                int goals = events.Where(x => x.player == player.name && x.type_of_event == "goal").Count();
+                int goals = events.Where(x => x.player == player.name && x.type_of_event.Contains("goal")).Count();
                 int yellowCards = events.Where(x => x.player == player.name && x.type_of_event == "yellow-card").Count();
 
                 PlayerRankControl playerRank = new PlayerRankControl();
